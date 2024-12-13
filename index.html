@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Eng App</title>
+        <style>
+*{
+    font-size: 50px;font-family: 'Times New Roman', Times, serif;
+}
+body{
+   background-color: cyan;
+}
+
+        </style>
+    </head>
+    <body>
+         <center>
+            <h1>Engineering  App</h1>
+            <form onsubmit="show()">
+                <label for="">Name</label>
+                <input type="text"placeholder="Enter your name" id="name"><br><br>
+<label for="">Select Year</label>
+                <select name="" id="year">
+                    <option value="FE">FE</option>
+                    <option value="SE">SE</option>
+                    <option value="TE">TE</option>
+                    <option value="LE">LE</option>
+                </select>
+<br><br>
+                <input type="submit" value="Submit">
+                
+            </form>
+            <h2 id="msg"></h2>
+         </center>
+
+         <script>
+
+            function show(){
+                event.preventDefault();
+                let name = document.getElementById("name");
+                let FE =document.getElementById("FE");
+                let SE =document.getElementById("SE");
+                let TE =document.getElementById("TE");
+                let LE =document.getElementById("LE");
+                let msg =document.getElementById("msg");
+
+                if(name.value==="")
+            {
+               alert("Name cannot be Empty");
+              
+               msg.innerHTML="";
+               name.focus();
+               return;
+            }
+                if(name.value.trim()==="")
+            {
+               alert("Name cannot be Blank Space");
+               name.value="";
+               msg.innerHTML="";
+               name.focus();
+               return;
+            }
+
+            if(!name.value.match(/^[A-Za-z ]+$/))
+            {
+                alert("Name Should be IN alpabhet");
+                name.value="";
+               msg.innerHTML="";
+               name.focus();
+               return;
+            }
+let choice="";
+if(year.value==="FE") choice="FE ";
+else if(year.value==="SE") choice+=" SE";
+else if(year.value==="TE") choice+=" TE ";
+else if(year.value==="LE") choice+=" LE";
+
+let ans="Name="+name.value+" is in Year="+choice;
+msg.innerHTML=ans;
+
+            }
+         </script>
+    </body>
+</html>
